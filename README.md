@@ -66,6 +66,9 @@ Today's focus writing SLURM job scripts and we will also practice how to check j
 Running an interactive session will avoid getting warnings or being flag for using resources out of the queue
 Now we can start an interactive session:
 
+
+
+
 ```                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                n --nodes=1 --ntasks-per-node=1  --cpus-per-task=8 --partition comp06 --time=6:00:00 --pty /bin/bash
 ##Basic SLURM scripts
 ## A basic script in slurm looks like:
@@ -86,7 +89,9 @@ cd /scratch/$SLURM_JOB_ID
 mpirun -ppn 16 -hostfile /scratch/${SLURM_JOB_ID}/machinefile_${SLURM_JOB_ID} -genv OMP_NUM_THREADS 4 -genv MKL_NUM_THREADS 4 /share/apps/espresso/qe-6.1-intel-mkl-impi/bin/pw.x -npools 1 <ausurf.in
 mv ausurf.log *mix* *wfc* *igk* $SLURM_SUBMIT_DIR/
 ```
+
 Link cheat sheet: https://www.chpc.utah.edu/presentations/SlurmCheatsheet.pdf
+
 ```
 
 
